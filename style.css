@@ -71,9 +71,15 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    color: var(--desatured-dark-blue);
 
     img {
       border-radius: 100%;
+    }
+
+    .author {
+      font-weight: var(--fw-700);
+      color: var(--very-dark-grayish-blue);
     }
   }
 
