@@ -3,6 +3,7 @@
   --desatured-dark-blue: hsl(214, 17%, 51%);
   --grayish-blue: hsl(212, 23%, 69%);
   --light-grayish-blue: hsl(210, 46%, 95%);
+  --white: hsl(0, 0%, 100%);
 
   --ff: "Manrope", sans-serif;
   --body-fs: 0.8125rem;
@@ -34,35 +35,54 @@ body {
   background-color: var(--light-grayish-blue);
   display: grid;
   grid-template-rows: 1fr auto;
-  font-size: var(--body-fs);
   line-height: 1.6;
 }
 
-main {
-  display: grid;
-}
-
 .blog-article-card {
-  background-color: hsl(0, 0%, 100%);
+  font-size: var(--body-fs);
+  background-color: var(--white);
   inline-size: min(calc(100% - 2rem), 800px);
   margin-inline: auto;
-  align-self: center;
   border-radius: 8px;
   overflow: hidden;
   font-weight: var(--fw-500);
 }
 
 .article-content-wrapper {
-  padding-inline: 2rem;
-  padding-block-start: 2rem;
+  padding: 2rem;
 
   h1 {
     color: var(--very-dark-grayish-blue);
   }
 
-  p {
+  > p {
     margin-top: 1rem;
     color: var(--desatured-dark-blue);
+  }
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+
+  .author-info-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      border-radius: 100%;
+    }
+  }
+
+  button {
+    border: none;
+    background-color: var(--light-grayish-blue);
+    padding: 0.5rem;
+    border-radius: 100%;
+    cursor: pointer;
   }
 }
 
