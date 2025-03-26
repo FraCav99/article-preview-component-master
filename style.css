@@ -69,8 +69,6 @@ main {
 }
 
 .article-content-wrapper {
-  padding: 2rem;
-
   h1 {
     color: var(--very-dark-grayish-blue);
   }
@@ -81,11 +79,17 @@ main {
   }
 }
 
+.article-content {
+  padding: 2rem 2rem 0;
+}
+
 .article-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 2rem;
+  padding: 1rem 2rem;
+  position: relative;
 
   .author-info-wrapper {
     display: flex;
@@ -109,7 +113,21 @@ main {
     padding: 0.5rem;
     border-radius: 100%;
     cursor: pointer;
+    z-index: 1;
   }
+}
+
+.links-wrapper {
+  background-color: var(--very-dark-grayish-blue);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: inherit;
+  text-transform: uppercase;
+  color: var(--grayish-blue);
+  letter-spacing: 0.5rem;
 }
 
 .attribution {
