@@ -49,7 +49,6 @@ main {
   max-inline-size: min(100% - 2.5rem, var(--_max-inline-size));
   margin-inline: auto;
   border-radius: 8px;
-  overflow: hidden;
   font-weight: var(--fw-500);
 
   @media screen and (min-width: 768px) {
@@ -117,17 +116,45 @@ main {
   }
 }
 
-.links-wrapper {
+.cta-popup {
   background-color: var(--very-dark-grayish-blue);
   position: absolute;
   inset: 0;
-  display: flex;
+  display: none;
   align-items: center;
-  gap: 1rem;
   padding: inherit;
   text-transform: uppercase;
   color: var(--grayish-blue);
   letter-spacing: 0.5rem;
+
+  &.open {
+    display: flex;
+  }
+
+  @media screen and (min-width: 768px) {
+    inset: -3.75rem -5rem auto auto;
+    border-radius: 8px;
+    justify-content: center;
+  }
+
+  .links-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .arrow-down {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--very-dark-grayish-blue);
+    position: absolute;
+    bottom: -0.625rem;
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
 }
 
 .attribution {
