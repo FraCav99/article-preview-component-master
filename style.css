@@ -61,9 +61,11 @@ main {
   inline-size: 100%;
   object-fit: cover;
   height: 200px;
+  border-radius: 8px 8px 0 0;
 
   @media screen and (min-width: 768px) {
     height: auto;
+    border-radius: 8px 0 0 8px;
   }
 }
 
@@ -127,15 +129,17 @@ main {
   background-color: var(--very-dark-grayish-blue);
   position: absolute;
   inset: 0;
-  display: none;
+  display: flex;
   align-items: center;
   padding: inherit;
   text-transform: uppercase;
   color: var(--grayish-blue);
   letter-spacing: 0.5rem;
+  border-radius: 0 0 8px 8px;
+  scale: 0;
 
   &.open {
-    display: flex;
+    scale: 1;
   }
 
   @media screen and (min-width: 768px) {
