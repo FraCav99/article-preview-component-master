@@ -66,8 +66,10 @@ body {
   }
 }
 
-.article-content-wrapper {
-  h1 {
+.article-content {
+  padding: 2rem 2rem 0;
+
+  > h1 {
     color: var(--very-dark-grayish-blue);
   }
 
@@ -75,10 +77,6 @@ body {
     margin-top: 1rem;
     color: var(--desatured-dark-blue);
   }
-}
-
-.article-content {
-  padding: 2rem 2rem 0;
 }
 
 .article-footer {
