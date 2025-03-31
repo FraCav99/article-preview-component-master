@@ -34,12 +34,9 @@ body {
   min-height: 100dvh; /* Fallback */
   background-color: var(--light-grayish-blue);
   display: grid;
-  grid-template-rows: 1fr auto;
+  place-content: center;
+  row-gap: 2rem;
   line-height: 1.6;
-}
-
-main {
-  align-content: center;
 }
 
 .blog-article-card {
