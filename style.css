@@ -48,7 +48,7 @@ body {
   border-radius: 8px;
   font-weight: var(--fw-500);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 995px) {
     --_max-inline-size: 800px;
     display: flex;
   }
@@ -60,7 +60,7 @@ body {
   height: 200px;
   border-radius: 8px 8px 0 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 995px) {
     height: auto;
     border-radius: 8px 0 0 8px;
   }
@@ -137,7 +137,7 @@ body {
     scale: 1;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 995px) {
     inset: -3.75rem -5rem auto auto;
     border-radius: 8px;
     justify-content: center;
@@ -157,7 +157,7 @@ body {
     bottom: -0.625rem;
     display: none;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 995px) {
       display: block;
     }
   }
