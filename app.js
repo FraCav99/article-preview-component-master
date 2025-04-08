@@ -25,6 +25,26 @@ document.addEventListener("keyup", function (ev) {
   }
 });
 
+socialLinkPopup.addEventListener("keydown", function (evt) {
+  if (evt.key !== "Tab") {
+    return;
+  }
+
+  const active = document.activeElement;
+  const firstLink = socialLinks[0];
+  const lastLink = socialLinks[socialLinks.length - 1];
+
+  if (evt.shiftKey) {
+    if (firstLink === active) {
+      evt.preventDefault();
+      lastLink.focus();
+    }
+  } else if (lastLink === active) {
+    evt.preventDefault();
+    firstLink.focus();
+  }
+});
+
 function toggleSocialPopup(shouldBeOpen) {
   socialLinkPopup.classList.toggle("open");
   popupOpenerBtn.setAttribute("aria-expanded", shouldBeOpen);
