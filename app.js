@@ -11,10 +11,7 @@ document.addEventListener("click", function (ev) {
   if (!socialLinkPopup.contains(target) && !popupOpenerBtn.contains(target)) {
     socialLinkPopup.classList.remove("open");
     popupOpenerBtn.setAttribute("aria-expanded", false);
-    buttonTextLabel.textContent = buttonTextLabel.textContent.replace(
-      "Close",
-      "Open"
-    );
+    buttonTextLabel.textContent = "Open Social Media Links Popup";
   }
 });
 
@@ -27,15 +24,7 @@ document.addEventListener("keyup", function (ev) {
 function toggleSocialPopup(shouldBeOpen) {
   socialLinkPopup.classList.toggle("open");
   popupOpenerBtn.setAttribute("aria-expanded", shouldBeOpen);
-  if (shouldBeOpen) {
-    buttonTextLabel.textContent = buttonTextLabel.textContent.replace(
-      "Open",
-      "Close"
-    );
-  } else {
-    buttonTextLabel.textContent = buttonTextLabel.textContent.replace(
-      "Close",
-      "Open"
-    );
-  }
+  buttonTextLabel.textContent = `${
+    shouldBeOpen ? "Close" : "Open"
+  } Social Media Links Popup`;
 }
