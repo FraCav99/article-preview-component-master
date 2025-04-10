@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
+
   <body>
     <main>
       <article class="blog-article-card">
@@ -36,14 +37,14 @@
               Shift the overall look and feel by adding these wonderful touches
               to furniture in your home
             </h1>
-  
+
             <p>
               Ever been in a room and felt like something was missing? Perhaps
               it felt slightly bare and uninviting. I’ve got some simple tips to
               help you make any room feel complete.
             </p>
           </div>
-  
+
           <footer class="article-footer">
             <div class="author-info-wrapper">
               <img
@@ -58,7 +59,7 @@
                 <time datetime="2020-06-28">28 Jun 2020</time>
               </div>
             </div>
-  
+
             <button
               aria-expanded="false"
               aria-labelledby="social-media-popup-btn"
@@ -73,18 +74,23 @@
                 />
               </svg>
             </button>
-  
-            <div class="cta-popup" id="cta-popup">
+
+            <div
+              class="cta-popup"
+              id="cta-popup"
+              aria-hidden="true"
+              aria-label="share popup"
+            >
               <div class="links-wrapper">
                 <p>share</p>
                 <a href="https://www.facebook.com" tabindex="-1">
                   <img src="images/icon-facebook.svg" alt="share on facebook" />
                 </a>
-  
+
                 <a href="https://twitter.com" tabindex="-1">
                   <img src="images/icon-twitter.svg" alt="share on twitter" />
                 </a>
-  
+
                 <a href="https://it.pinterest.com/" tabindex="-1">
                   <img
                     src="images/icon-pinterest.svg"

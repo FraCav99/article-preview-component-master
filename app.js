@@ -41,7 +41,7 @@ socialLinkPopup.addEventListener("keydown", function (evt) {
     }
   } else if (lastLink === active) {
     evt.preventDefault();
-    firstLink.focus();
+    popupOpenerBtn.focus();
   }
 });
 
@@ -54,11 +54,19 @@ function toggleSocialPopup(shouldBeOpen) {
 
   if (shouldBeOpen) {
     socialLinkPopup.setAttribute("tabindex", "0");
-    socialLinks.forEach((link) => link.removeAttribute("tabindex"));
+    socialLinkPopup.setAttribute("aria-hidden", false);
+    socialLinks.forEach((link) => {
+      link.removeAttribute("tabindex");
+      link.removeAttribute("aria-hidden");
+    });
     socialLinkPopup.focus();
   } else {
     socialLinkPopup.removeAttribute("tabindex");
-    socialLinks.forEach((link) => link.setAttribute("tabindex", "-1"));
+    socialLinkPopup.setAttribute("aria-hidden", true);
+    socialLinks.forEach((link) => {
+      link.setAttribute("tabindex", "-1");
+      link.setAttribute("aria-hidden", true);
+    });
     popupOpenerBtn.focus();
   }
 }
