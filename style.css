@@ -92,6 +92,8 @@ body {
   margin-top: 2rem;
   padding: 1rem 2rem;
   position: relative;
+  border-radius: 0 0 8px 8px;
+  overflow-y: clip;
 
   .author-info-wrapper {
     display: flex;
@@ -137,10 +139,11 @@ body {
   color: var(--grayish-blue);
   letter-spacing: 0.5rem;
   border-radius: 0 0 8px 8px;
-  scale: 0;
+  translate: 0 100%;
+  transition: translate 500ms ease-in;
 
   &.open {
-    scale: 1;
+    translate: 0;
   }
 
   @media screen and (min-width: 995px) {
