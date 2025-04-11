@@ -56,7 +56,8 @@ body {
   @media screen and (min-width: 995px) {
     --_max-inline-size: 800px;
     --_box-shadow: 29px 23px 49px -33px var(--grayish-blue); 
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
   }
 }
 
@@ -67,7 +68,8 @@ body {
   border-radius: 8px 8px 0 0;
 
   @media screen and (min-width: 995px) {
-    height: auto;
+    min-height: 100%;
+    align-self: stretch;
     border-radius: 8px 0 0 8px;
   }
 }
