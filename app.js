@@ -5,23 +5,29 @@ const socialLinkPopup = document.getElementById("cta-popup");
 const socialLinks = socialLinkPopup.querySelectorAll("a");
 
 popupOpenerBtn.addEventListener("click", function () {
-  toggleSocialPopup(!socialLinkPopup.classList.contains("open"));
+  const isPopupClose = socialLinkPopup.getAttribute("aria-hidden") === "true";
+  if (isPopupClose) {
+    openPopup();
+  } else {
+    closePopup();
+  }
 });
 
 document.addEventListener("click", function (ev) {
   const target = ev.target;
-  if (!socialLinkPopup.contains(target) && !popupOpenerBtn.contains(target)) {
-    socialLinkPopup.classList.remove("open");
-    socialLinkPopup.removeAttribute("tabindex");
+  const clickedOutsidePopup =
+    !socialLinkPopup.contains(target) && !popupOpenerBtn.contains(target);
+  const isPopupOpen = socialLinkPopup.getAttribute("aria-hidden") === "false";
 
-    popupOpenerBtn.setAttribute("aria-expanded", false);
-    buttonTextLabel.textContent = "Open Social Media Links Popup";
+  if (clickedOutsidePopup && isPopupOpen) {
+    closePopup();
   }
 });
 
 document.addEventListener("keyup", function (ev) {
-  if (ev.key === "Escape" && socialLinkPopup.classList.contains("open")) {
-    toggleSocialPopup(false);
+  const isPopupOpen = socialLinkPopup.getAttribute("aria-hidden") === "false";
+  if (ev.key === "Escape" && isPopupOpen) {
+    closePopup();
   }
 });
 
@@ -45,28 +51,29 @@ socialLinkPopup.addEventListener("keydown", function (evt) {
   }
 });
 
-function toggleSocialPopup(shouldBeOpen) {
-  socialLinkPopup.classList.toggle("open");
-  popupOpenerBtn.setAttribute("aria-expanded", shouldBeOpen);
-  buttonTextLabel.textContent = `${
-    shouldBeOpen ? "Close" : "Open"
-  } Social Media Links Popup`;
+function openPopup() {
+  popupOpenerBtn.setAttribute("aria-expanded", true);
+  buttonTextLabel.textContent = "Close Social Media Links Popup";
 
-  if (shouldBeOpen) {
-    socialLinkPopup.setAttribute("tabindex", "0");
-    socialLinkPopup.setAttribute("aria-hidden", false);
-    socialLinks.forEach((link) => {
-      link.removeAttribute("tabindex");
-      link.removeAttribute("aria-hidden");
-    });
-    socialLinkPopup.focus();
-  } else {
-    socialLinkPopup.removeAttribute("tabindex");
-    socialLinkPopup.setAttribute("aria-hidden", true);
-    socialLinks.forEach((link) => {
-      link.setAttribute("tabindex", "-1");
-      link.setAttribute("aria-hidden", true);
-    });
-    popupOpenerBtn.focus();
-  }
+  socialLinkPopup.setAttribute("aria-hidden", false);
+  socialLinkPopup.setAttribute("tabindex", "0");
+  socialLinkPopup.focus();
+
+  socialLinks.forEach((link) => {
+    link.removeAttribute("tabindex");
+    link.removeAttribute("aria-hidden");
+  });
+}
+
+function closePopup() {
+  popupOpenerBtn.setAttribute("aria-expanded", false);
+  buttonTextLabel.textContent = "Open Social Media Links Popup";
+  popupOpenerBtn.focus();
+
+  socialLinkPopup.setAttribute("aria-hidden", true);
+  socialLinkPopup.removeAttribute("tabindex");
+  socialLinks.forEach((link) => {
+    link.setAttribute("tabindex", "-1");
+    link.setAttribute("aria-hidden", true);
+  });
 }
