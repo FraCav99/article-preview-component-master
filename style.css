@@ -37,6 +37,11 @@ body {
   place-content: center;
   row-gap: 2rem;
   line-height: 1.6;
+
+  /* Avoid transition to start when window resizing */
+  &:not(:hover) * {
+    transition: none;
+  }
 }
 
 .blog-article-card {
